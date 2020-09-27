@@ -23,5 +23,6 @@ public class StabilizeScript : MonoBehaviour
                                    Mathf.LerpAngle(currentAngle.y, uprightAngle.y, Time.deltaTime),
                                    Mathf.LerpAngle(currentAngle.z, uprightAngle.z, Time.deltaTime));
         transform.eulerAngles = currentAngle;
+
     }
 }

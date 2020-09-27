@@ -15,23 +15,16 @@ public class DrivingScript : MonoBehaviour
 
     public GameObject Motorcycle;
 
-    private Vector3 currentAngle;
-
-
-    private float currentLean;
-
-
-
-    float rotationZ = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        currentAngle = Motorcycle.transform.eulerAngles;
+        //currentAngle = Motorcycle.transform.eulerAngles;
 
 
         WC = this.GetComponent<WheelCollider>();
+
     }
 
     // Update is called once per frame
@@ -45,6 +38,7 @@ public class DrivingScript : MonoBehaviour
         Steer(s);
 
         Balance();
+
     }
 
 
@@ -57,7 +51,7 @@ public class DrivingScript : MonoBehaviour
         accel = Mathf.Clamp(accel, -1, 1);
         float thrustTorque = accel * torque;
         WC.motorTorque = thrustTorque;      //Current Speed
-        Debug.Log(WC.motorTorque);
+        //Debug.Log(WC.motorTorque);
 
 
 
@@ -71,9 +65,12 @@ public class DrivingScript : MonoBehaviour
         //Control the bikes brakes if spacebar is pressed or released
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            brakes = 3000;
-            WC.brakeTorque = brakes;
-            Wheel.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if(WC.name == "RWCollider")
+            {
+                brakes = 16000;
+                WC.brakeTorque = brakes;
+                Wheel.transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
@@ -106,66 +103,41 @@ public class DrivingScript : MonoBehaviour
 
     void Balance()
     {
-        /*
-        rotationZ = Mathf.Clamp(rotationZ, -30, 30);
+        Rigidbody rb = Motorcycle.GetComponent<Rigidbody>();
+        float tiltingAmount = Mathf.Abs(rb.velocity.x) + Mathf.Abs(rb.velocity.z) / 1.5f;
 
-        if (rotationZ > 0)
+        if (Input.GetAxis("Horizontal") >= 0.1)
         {
-            rotationZ -= 0.1f;
-        }
-        else if (rotationZ < 0)
-        {
-            rotationZ += 0.1f;
-        }
-
-
-        if (Input.GetAxis("Horizontal") >= 0.1 && Input.GetAxis("Vertical") >= 0.1)
-        {
-
-            //rotationZ += Input.GetAxis("Horizontal") * Time.deltaTime;
-            rotationZ += 0.2f;
-            //rotationY += 0.01f;
-            currentAngle = new Vector3(currentAngle.x, currentAngle.y, rotationZ);
-
-            Motorcycle.transform.eulerAngles = currentAngle;
-
-
-        }
-
-        if (Input.GetAxis("Horizontal") <= -0.1 && Input.GetAxis("Vertical") >= 0.1)
-        {
-
-            //rotationZ -= Input.GetAxis("Horizontal") * Time.deltaTime;
-            rotationZ -= 0.2f;
-            //rotationY += 0.01f;
-            currentAngle = new Vector3(currentAngle.x, currentAngle.y, rotationZ);
-
-            Motorcycle.transform.eulerAngles = currentAngle;
-
-
-        }
-        */
-
-        if(Input.GetAxis("Horizontal") == 0)
-        {
-
-            float rotSpeed = 1f;
-
-            Vector3 uprightLeanDirection = new Vector3(0f, 1f, 0f) * 5;                                                                         //Vector position points upright
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, new Vector3(0f, 0f, uprightLeanDirection.z), Time.deltaTime, 0.0f); //Vector takes the current lean vector and updates z position to move towards upright
+            if(Motorcycle.transform.localRotation.eulerAngles.z > 330 || Motorcycle.transform.localRotation.eulerAngles.z < 30)
+            {
+                
+                Motorcycle.transform.Rotate(new Vector3(0, 0, tiltingAmount) * Time.deltaTime);
+            }
             
-            var newRot = Quaternion.LookRotation(newDirection);                                                                                 //LookDirection required in order to Lerp rather than jump to new rotation
-            
-            Motorcycle.transform.rotation = Quaternion.Lerp(Motorcycle.transform.rotation, newRot, rotSpeed*Time.deltaTime);                     //Lerp between the Motorcycles ccurrent rotation and the upright rotation
+        }
+
+        if (Input.GetAxis("Horizontal") <= -0.1)
+        {
+            if(Motorcycle.transform.localRotation.eulerAngles.z > 330 || Motorcycle.transform.localRotation.eulerAngles.z < 30)
+            {
+                Motorcycle.transform.Rotate(new Vector3(0, 0, -tiltingAmount) * Time.deltaTime);
+            }
 
         }
 
-        /*
-            float turnLean = Mathf.Clamp(thrustTorque, -30, 30);
-            Quaternion lean = Quaternion.Euler(0, 0, turnLean);
-            Motorcycle.transform.rotation = lean;
-        */
 
+        if (Input.GetAxis("Horizontal") == 0)
+        {
+            //Create new Vector from product of the forward vector and a vector pointing straight up
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, new Vector3(0f, 0f, 0f), Time.deltaTime, 0.0f);
+
+            //LookDirection required in order to Lerp rather than jump to new rotation
+            var newRot = Quaternion.LookRotation(newDirection);
+
+            //Lerp between the Motorcycles ccurrent rotation and the upright rotation
+            Motorcycle.transform.rotation = Quaternion.Lerp(Motorcycle.transform.rotation, newRot, Time.deltaTime);                     
+        }
+       
     }
 
     private void OnDrawGizmos()
@@ -180,6 +152,15 @@ public class DrivingScript : MonoBehaviour
             Gizmos.color = Color.blue;
             Vector3 uprightLeanDirection = new Vector3(0f, 1f, 0f) * 5;
             Gizmos.DrawRay(Motorcycle.transform.position, uprightLeanDirection);
+
+            Gizmos.color = Color.green;
+            Vector3 leftLeanDirection = Motorcycle.transform.TransformDirection(new Vector3(.4f, 1f, 0f) * 5);
+            Gizmos.DrawRay(Motorcycle.transform.position, leftLeanDirection);
+
+            Gizmos.color = Color.yellow;
+            Vector3 rightLeanDirection = Motorcycle.transform.TransformDirection(new Vector3(-.4f, 1f, 0f) * 5);
+            Gizmos.DrawRay(Motorcycle.transform.position, rightLeanDirection);
+
         }
     }
 
