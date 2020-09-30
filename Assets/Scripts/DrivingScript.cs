@@ -63,19 +63,21 @@ public class DrivingScript : MonoBehaviour
         Wheel.transform.rotation = quat;
 
         //Control the bikes brakes if spacebar is pressed or released
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if(WC.name == "RWCollider")
+            if (WC.name == "RWCollider")
             {
                 brakes = 16000;
                 WC.brakeTorque = brakes;
                 Wheel.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
+            
         }
         if(Input.GetKeyUp(KeyCode.Space))
         {
             brakes = 0;
             WC.brakeTorque = brakes;
+
         }
 
 
@@ -140,6 +142,7 @@ public class DrivingScript : MonoBehaviour
        
     }
 
+    /*
     private void OnDrawGizmos()
     {
         if (Application.isPlaying)
@@ -153,15 +156,8 @@ public class DrivingScript : MonoBehaviour
             Vector3 uprightLeanDirection = new Vector3(0f, 1f, 0f) * 5;
             Gizmos.DrawRay(Motorcycle.transform.position, uprightLeanDirection);
 
-            Gizmos.color = Color.green;
-            Vector3 leftLeanDirection = Motorcycle.transform.TransformDirection(new Vector3(.4f, 1f, 0f) * 5);
-            Gizmos.DrawRay(Motorcycle.transform.position, leftLeanDirection);
-
-            Gizmos.color = Color.yellow;
-            Vector3 rightLeanDirection = Motorcycle.transform.TransformDirection(new Vector3(-.4f, 1f, 0f) * 5);
-            Gizmos.DrawRay(Motorcycle.transform.position, rightLeanDirection);
-
         }
     }
+    */
 
 }
