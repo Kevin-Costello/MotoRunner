@@ -45,7 +45,6 @@ public class PlayerScore : MonoBehaviour
     private void Load()
     {
         string saveString = File.ReadAllText(Application.dataPath + "/save.txt");
-        Debug.Log("Loaded. HighScore is " + saveString);
         highScore = int.Parse(saveString);
     }
 }

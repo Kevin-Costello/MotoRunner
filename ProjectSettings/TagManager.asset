@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - DestroyObstacle
   - Item
+  - Road
+  - BikePart
   layers:
   - Default
   - TransparentFX

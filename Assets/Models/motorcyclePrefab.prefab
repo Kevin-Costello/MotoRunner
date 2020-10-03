@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6343158661808373589}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 2578779590918956507}
   m_Layer: 0
   m_Name: Cylinder.006
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ GameObject:
   - component: {fileID: 6337122846212543857}
   m_Layer: 0
   m_Name: Cylinder.002
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 6599085610336783266}
   m_Layer: 0
   m_Name: Cylinder.005
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 5702105041511817460}
   m_Layer: 0
   m_Name: Cube.003
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -499,7 +499,7 @@ GameObject:
   - component: {fileID: 1196765046203115980}
   m_Layer: 0
   m_Name: SteeringColumn
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -587,7 +587,7 @@ GameObject:
   - component: {fileID: 2000116289397187071}
   m_Layer: 0
   m_Name: Cylinder.004
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 357109405191724869}
   m_Layer: 0
   m_Name: GasTank
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 3978261052351263958}
   - component: {fileID: 3978261052351263953}
   m_Layer: 0
-  m_Name: motorcycle
+  m_Name: motorcyclePrefab
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
-  speedText: {fileID: 0}
+  speedText: {fileID: 2131314395751270739, guid: ee096e0d1967b4148a3778f40955ad05, type: 3}
 --- !u!114 &3978261052351263959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -860,7 +860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerScore: 0
-  speedText: {fileID: 0}
+  highScore: 0
+  playerScoreText: {fileID: 7004099162415857426, guid: 48f885431cbfe8d4c9a33017f86abec5, type: 3}
+  highScoreText: {fileID: 6460964636401416646, guid: d4855e5e2f1e8bc40adba096c62bedeb, type: 3}
 --- !u!1 &4712200079357673877
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +957,7 @@ GameObject:
   - component: {fileID: 5786158299152395163}
   m_Layer: 0
   m_Name: Seat
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1037,7 +1039,7 @@ GameObject:
   - component: {fileID: 3771819482648486451}
   m_Layer: 0
   m_Name: Cylinder.003
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1118,7 +1120,7 @@ GameObject:
   - component: {fileID: 6473103993346515248}
   m_Layer: 0
   m_Name: Cylinder.001
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1199,7 +1201,7 @@ GameObject:
   - component: {fileID: 5575981724458085959}
   m_Layer: 0
   m_Name: Cube.002
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1282,7 @@ GameObject:
   - component: {fileID: 5455804206613760185}
   m_Layer: 0
   m_Name: Cylinder.007
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1359,7 +1361,7 @@ GameObject:
   - component: {fileID: 8221824571640317937}
   m_Layer: 0
   m_Name: WheelColliders
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1391,7 +1393,7 @@ GameObject:
   - component: {fileID: 8221824572451411401}
   m_Layer: 0
   m_Name: WheelMesh
-  m_TagString: Untagged
+  m_TagString: BikePart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

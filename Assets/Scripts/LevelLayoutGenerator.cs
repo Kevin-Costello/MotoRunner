@@ -11,7 +11,7 @@ public class LevelLayoutGenerator : MonoBehaviour
 
     public Vector3 spawnOrigin;
 
-    private Vector3 spawnPosition;
+    public Vector3 spawnPosition;
     public int chunksToSpawn = 10;
 
     void OnEnable()
@@ -31,7 +31,7 @@ public class LevelLayoutGenerator : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void Start()
     {
         previousChunk = firstChunk;
 

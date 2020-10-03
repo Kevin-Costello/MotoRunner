@@ -17,8 +17,11 @@ public class TriggerExit : MonoBehaviour
         {
             if (bikeTag != exited)
             {
+                
                 exited = true;
+                Debug.Log(OnChunkExited);
                 OnChunkExited();
+
                 StartCoroutine(WaitAndDeactivate());
             }
         }
