@@ -923,6 +923,7 @@ MonoBehaviour:
   WC: {fileID: 1212107020660906302}
   torque: 5000
   brakes: 0
+  slip: 0.6
   maxSteerAngle: 40
   Wheel: {fileID: 1218466353749104166}
   Motorcycle: {fileID: 3675671463003077043}
@@ -943,7 +944,7 @@ GameObject:
   - component: {fileID: 5524054432437789285}
   m_Layer: 0
   m_Name: motorcycleV3
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -977,6 +978,7 @@ Transform:
   - {fileID: 4657177709109399509}
   - {fileID: 3846006790351663297}
   - {fileID: 8378227399265308260}
+  - {fileID: 7354624476539120229}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1062,6 +1064,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerScore: 0
   highScore: 0
+  playerTrail: {fileID: 5227912739152126450, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
   playerScoreText: {fileID: 0}
   highScoreText: {fileID: 0}
 --- !u!1 &3778591221935349912
@@ -2390,6 +2393,7 @@ MonoBehaviour:
   WC: {fileID: 2620955186120826169}
   torque: 12000
   brakes: 0
+  slip: 0.6
   maxSteerAngle: 0
   Wheel: {fileID: 4995087786342288637}
   Motorcycle: {fileID: 3675671463003077043}
@@ -2476,3 +2480,69 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &3359009185473170324
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4055855488928506633}
+    m_Modifications:
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.00047063828
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2128118
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.20253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126450, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_Name
+      value: Trail
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227912739152126450, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+--- !u!4 &7354624476539120229 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5227912739152126449, guid: c2733963aca514b46b43ca62bcd2c094, type: 3}
+  m_PrefabInstance: {fileID: 3359009185473170324}
+  m_PrefabAsset: {fileID: 0}

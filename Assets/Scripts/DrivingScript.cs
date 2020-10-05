@@ -8,6 +8,7 @@ public class DrivingScript : MonoBehaviour
     public WheelCollider WC;
     public float torque = 100;
     public float brakes = 0;
+    public float slip = 0.6f;
     public float maxSteerAngle = 35;
     public GameObject Wheel;
 
@@ -67,10 +68,11 @@ public class DrivingScript : MonoBehaviour
         {
             if (WC.name == "RWCollider")
             {
-                brakes = 16000;
+                brakes = 12000;
                 WC.brakeTorque = brakes;
                 Wheel.transform.rotation = Quaternion.Euler(0, 0, 0);
             }
+
             
         }
         if(Input.GetKeyUp(KeyCode.Space))

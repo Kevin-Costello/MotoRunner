@@ -22,6 +22,13 @@ public class Speedometer : MonoBehaviour
        
         currentSpeed = rb.velocity.magnitude * 2.23694f;
         speedText.text = currentSpeed.ToString("F2") + "MPH";
-    
+        if(currentSpeed > 60)
+        {
+            speedText.color = Color.red;
+        }
+        else
+        {
+            speedText.color = Color.black;
+        }
     }
 }

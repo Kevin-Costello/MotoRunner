@@ -31,7 +31,7 @@ public class CrashScript : MonoBehaviour
         {
             GameObject motorcycle = GameObject.Find("motorcycle");
             Speedometer speed = motorcycle.GetComponent<Speedometer>();
-            if (speed.currentSpeed > 30)
+            if (speed.currentSpeed > 60)
             {
                 Crashed();
             }

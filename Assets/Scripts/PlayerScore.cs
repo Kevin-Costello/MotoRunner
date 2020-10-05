@@ -9,6 +9,7 @@ public class PlayerScore : MonoBehaviour
     // Start is called before the first frame update
     public int playerScore = 0;
     public int highScore = 0;
+    public GameObject playerTrail;
     public Text playerScoreText;
     public Text highScoreText;
 
@@ -16,6 +17,10 @@ public class PlayerScore : MonoBehaviour
     void Start()
     {
         Load();
+        if (highScore > 10)
+        {
+            playerTrail.SetActive(true);
+        }
     }
 
     // Update is called once per frame

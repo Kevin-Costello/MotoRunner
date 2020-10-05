@@ -10,10 +10,6 @@ public class CameraController : MonoBehaviour
     public float translateSpeed;
     public float rotationSpeed;
 
-    private Vector3 velocity = Vector3.zero;
-
-
-
     void Start()
     {
         

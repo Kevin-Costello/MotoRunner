@@ -41,6 +41,9 @@ public class ResetPlayer : MonoBehaviour
             {
                 Destroy(bikeParts[i]);
             }
+            GameObject trail = GameObject.Find("Trail");
+            Destroy(trail);
+
             Destroy(motorcycle);
             motorcycle = Instantiate(motorcyclePrefab, resetPosition, resetRotation);
             motorcycle.name = "motorcycle";
@@ -97,6 +100,7 @@ public class ResetPlayer : MonoBehaviour
             cameraController.target = motorcycle.transform;
             
             crash.crashed = false;
+
         }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1d268eb47c09d646b4270ff186088e3, type: 3}
   m_Name: WN Chunk
   m_EditorClassIdentifier: 
-  chunkSize: {x: 100, y: 100}
+  chunkSize: {x: 99, y: 100}
   levelChunk:
   - {fileID: 969003455533751864, guid: 7f6426ba292e80f4c99c69a51b313013, type: 3}
   entryDirection: 3

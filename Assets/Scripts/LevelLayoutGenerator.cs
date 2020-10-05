@@ -48,6 +48,7 @@ public class LevelLayoutGenerator : MonoBehaviour
 
         LevelChunkData.Direction nextRequiredDirection = LevelChunkData.Direction.North;
 
+        //Determine next chunk based on the exit direction of previous chunk and the entry direction of the next
         switch(previousChunk.exitDirection)
         {
             case LevelChunkData.Direction.North:
@@ -72,6 +73,7 @@ public class LevelLayoutGenerator : MonoBehaviour
                 break;
         }
 
+        //Take all chunks with determined entry point and add them to allowed list
         for (int i = 0; i < levelChunkData.Length; i++)
         {
             if(levelChunkData[i].entryDirection == nextRequiredDirection)
@@ -89,7 +91,9 @@ public class LevelLayoutGenerator : MonoBehaviour
     {
         LevelChunkData chunkToSpawn = PickNextChunk();
 
+        // In case there are multiple chunks with the same entry and exit points
         GameObject objectFromChunk = chunkToSpawn.levelChunk[0];
+
         previousChunk = chunkToSpawn;
         Instantiate(objectFromChunk, spawnPosition + spawnOrigin, Quaternion.identity);
 
